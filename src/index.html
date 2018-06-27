@@ -1,14 +1,35 @@
 <!doctype html>
 <html lang="en">
+ 
 <head>
-  <meta charset="utf-8">
-  <title>MultiStep</title>
-  <base href="/">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="utf-8">
+    <title>Angular Multi-Step Wizard</title>
+    <base href="/">
+ 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+ 
 </head>
+ 
 <body>
-  <app-root></app-root>
+    <multi-step-wizard-app>
+        <!-- Show simple splash screen-->
+        <div class="splash">
+            <div class="color-line"></div>
+            <div class="splash-title">
+                <h1>Angular Multi-Step Wizard</h1>
+                <img src="assets/images/loading-bars.svg" width="64" height="64" />
+            </div>
+        </div>
+    </multi-step-wizard-app>
 </body>
+<script>
+    // Check that service workers are registered
+    if ('serviceWorker' in navigator) {
+      // Use the window load event to keep the page load performant
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
 </html>
